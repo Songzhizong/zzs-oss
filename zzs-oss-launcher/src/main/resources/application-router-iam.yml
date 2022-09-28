@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: IAM
+          uri: http://127.0.0.1:${server.port}
+          predicates:
+            - name: Path
+              args:
+                paterns:
+                  - /gw_proxy/iam/**
+          filters:
+            - name: StripPrefix
+              args:
+                parts: 1
+            - name: IamAuth
+              args:
+                permit-matchers:
+                  - /iam/user/register
+                  - /iam/login/**
+                permit-api-auth-matchers:
+                  - /iam/user/self/**
+                  - /iam/user_self/**
+                api-auth-matchers:
+                  - /iam/**

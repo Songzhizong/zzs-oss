@@ -1,0 +1,10 @@
+logging:
+  charset:
+    console: utf-8
+  level:
+    root: info
+    com.zzs: debug
+    io.netty.resolver.dns.DnsServerAddressStreamProviders: off
+    com.zzs.iam.launcher.configure.WebMessageConverterAutoConfigure: info
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(-%5p) %clr(-){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(%6L){magenta} %clr(:){faint} %m%n"

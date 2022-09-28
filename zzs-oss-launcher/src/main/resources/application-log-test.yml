@@ -1,0 +1,18 @@
+logging:
+  charset:
+    console: utf-8
+    file: UTF-8
+  level:
+    root: info
+    com.zzs: info
+    com.github.benmanes.caffeine.cache.LocalAsyncLoadingCache: error
+  pattern:
+    console: ""
+    file: "%d{MM-dd HH:mm:ss} -%5p - %-40.40logger{39} : %m%n"
+  file:
+    name: ./logs/server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 20MB
+      max-history: 7
+      file-name-pattern: "${LOG_FILE}.%d{yyyy-MM-dd}.%i.log"

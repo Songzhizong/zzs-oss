@@ -1,0 +1,29 @@
+spring:
+  config:
+    import: application-log-dev.yml,application-router-iam.yml
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://127.0.0.1:27011,127.0.0.1:27012,127.0.0.1:27013/zzs-iam?maxPoolSize=64
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+  rabbitmq:
+    username: admin
+    password: admin
+    virtual-host: zzs
+    addresses: 127.0.0.1:5672
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  mail:
+    host: xxx.163.com
+    username: xxx@163.com
+    password: xxxxxxxxxxxxxxx
+
+zzs-id:
+  snowflake:
+    factory: redis
+zzs-event:
+  rabbit:
+    temporary: true
+launcher:
+  enable-mongo-transaction-management: true
